@@ -1,0 +1,22 @@
+{
+  "name": "code-challenges-js",
+  "version": "1.0.0",
+  "description": "code challenges, javascript flavor",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericbutera/code-challenges-js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ericbutera/code-challenges-js/issues"
+  },
+  "homepage": "https://github.com/ericbutera/code-challenges-js#readme",
+  "dependencies": {
+    "mocha": "^9.2.2"
+  }
+}
