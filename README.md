@@ -8,7 +8,11 @@ Mocha is the test framework for this project. Tests can be ran with `npm test`.
 
 ## Source Code Organization
 
-- The directory `test/*` contains everything.
-- Goal: create high-quality data-structure & algorithm study examples
-  - test/algorithms/*
-  - test/data-structures/*
+The directory `test/*` contains everything.
+
+| directory | description |
+| -- | -- |
+| [test/leetcode](./test/leetcode/) | contains solutions to LeetCode problems |
+| [test/algorithms](./test/algorithms/) | algo notes |
+| [test/data-structures](./test/data-structures/) | data structure notes |
+| [test/problems](./test/problems/) | misc. problems |
