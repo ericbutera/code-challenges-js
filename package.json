@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha --recursive",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix --ext .js,.jsx ."
+    "lint:fix": "eslint --fix --ext .js,.jsx .",
+    "prepare": "husky"
   },
   "lint-staged": {
     "*.js": "eslint --fix"
