@@ -8,10 +8,10 @@ const employees = [
 ];
 
 function groupByDepartment(employees) {
-  res = {};
+  const res = {};
   for (let employee of employees) {
     let key = employee.department;
-    if (!res.hasOwnProperty(key)) {
+    if (!res[key]) {
       res[key] = [];
     }
     res[key].push(employee.name);
@@ -56,7 +56,7 @@ Constraints:
 const assert = require("assert");
 describe("groupByDepartment", () => {
   it("example 1", () => {
-    expected = {
+    const expected = {
       Engineering: ["Alice", "Charlie"],
       HR: ["Bob", "Diana"],
       Sales: ["Eve"],

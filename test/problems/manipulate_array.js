@@ -9,7 +9,7 @@ const users = [
 function filterAndTransform(users) {
   const u = users.filter((user) => user.active && user.age >= 18);
 
-  out = [];
+  const out = [];
   u.forEach((user) => {
     // "<name> (id: <id>)"
     out.push(`${user.name} (id: ${user.id})`);

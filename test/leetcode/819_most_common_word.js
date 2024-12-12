@@ -20,24 +20,23 @@ var mostCommonWord = function (paragraph, banned) {
   // 9. if count > largest -> update largest (TODO: tie breaker?)
   // 10. return largest
 
-  paragraph = paragraph.toLowerCase()
-  paragraph = paragraph.replace(/[^a-zA-Z ]/g, ' ') // invalid chars
-  paragraph = paragraph.replace(/\s+/g, ' ').trim() // whitespace
-  let words = paragraph.split(' ')
-  const counter = {} // word => count
+  paragraph = paragraph.toLowerCase();
+  paragraph = paragraph.replace(/[^a-zA-Z ]/g, " "); // invalid chars
+  paragraph = paragraph.replace(/\s+/g, " ").trim(); // whitespace
+  let words = paragraph.split(" ");
+  const counter = {}; // word => count
   for (let word of words) {
-    let isBanned = banned.includes(word)
-    if (isBanned)
-      continue;
+    let isBanned = banned.includes(word);
+    if (isBanned) continue;
 
-    if (!counter.hasOwnProperty(word)) {
-      counter[word] = 1
+    if (!counter[word]) {
+      counter[word] = 1;
     } else {
       counter[word]++;
     }
   }
 
-  let largest = '';
+  let largest = "";
   for (const [word, count] of Object.entries(counter)) {
     if (!largest || count > counter[largest]) {
       largest = word;
@@ -47,35 +46,36 @@ var mostCommonWord = function (paragraph, banned) {
   return largest;
 };
 
-const assert = require('assert')
-describe('most common word', () => {
-  it('example 1', () => {
-    let paragraph = "Bob hit a ball, the hit BALL flew far after it was hit."
-    let banned = ["hit"]
-    assert.equal(mostCommonWord(paragraph, banned), "ball")
-  })
+const assert = require("assert");
+describe("most common word", () => {
+  it("example 1", () => {
+    let paragraph = "Bob hit a ball, the hit BALL flew far after it was hit.";
+    let banned = ["hit"];
+    assert.equal(mostCommonWord(paragraph, banned), "ball");
+  });
 
-  it('handles example 2', () => {
-    let paragraph = "a."
-    let banned = []
-    assert.equal(mostCommonWord(paragraph, banned), "a")
-  })
+  it("handles example 2", () => {
+    let paragraph = "a.";
+    let banned = [];
+    assert.equal(mostCommonWord(paragraph, banned), "a");
+  });
 
-  it('handles example 3', () => {
-    let paragraph = "Bob. hIt, baLl"
-    let banned = ["bob", "hit"]
-    assert.equal(mostCommonWord(paragraph, banned), "ball")
-  })
+  it("handles example 3", () => {
+    let paragraph = "Bob. hIt, baLl";
+    let banned = ["bob", "hit"];
+    assert.equal(mostCommonWord(paragraph, banned), "ball");
+  });
 
-  it('handles example 4', () => {
-    let paragraph = "a, a, a, a, b,b,b,c, c"
-    let banned = ["a"]
-    assert.equal(mostCommonWord(paragraph, banned), "b")
-  })
+  it("handles example 4", () => {
+    let paragraph = "a, a, a, a, b,b,b,c, c";
+    let banned = ["a"];
+    assert.equal(mostCommonWord(paragraph, banned), "b");
+  });
 
-  it('handle example 5', () => {
-    let paragraph = "Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. "
-    let banned = ["hit"]
-    assert.equal(mostCommonWord(paragraph, banned), "ball")
-  })
-})
+  it("handle example 5", () => {
+    let paragraph =
+      "Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. Bob hit a ball, the hit BALL flew far after it was hit. ";
+    let banned = ["hit"];
+    assert.equal(mostCommonWord(paragraph, banned), "ball");
+  });
+});

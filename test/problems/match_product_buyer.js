@@ -73,7 +73,7 @@ const assert = require("assert");
 
 describe("matchProductsToBuyers", () => {
   it("example", () => {
-    expected = [
+    const expected = [
       { buyerName: "Alice", productName: "Phone" },
       { buyerName: "Bob", productName: "Laptop" },
       { buyerName: "Charlie", productName: null },

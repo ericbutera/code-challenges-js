@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/reverse-string/
 
-const assert = require('assert');
+const assert = require("assert");
 
 /*
 reverse steps:
@@ -35,7 +35,7 @@ ca s ts
  * @param {character[]} s
  * @return {void} Do not return anything, modify s in-place instead.
  */
-const reverseString = function(s) {
+const reverseString = function (s) {
   let half = Math.floor(s.length / 2);
   let max = s.length - 1;
 
@@ -43,30 +43,30 @@ const reverseString = function(s) {
   s = Array.from(s);
 
   for (let i = 0; i < half; i++) {
-    let store = s[max - i]
-    s[max - i] = s[i]
-    s[i] = store
+    let store = s[max - i];
+    s[max - i] = s[i];
+    s[i] = store;
   }
 
-  return s.join('');
+  return s.join("");
 };
 
-describe('reverseString', () => {
-  it('should pass sample', () => {
-    let input = 'hello';
+describe("reverseString", () => {
+  it("should pass sample", () => {
+    let input = "hello";
     let result = reverseString(input);
-    assert.equal(result, 'olleh');
-  })
+    assert.equal(result, "olleh");
+  });
 
-  it('should handle even words', () => {
-    assert.equal(reverseString('hi'), 'ih');
-  })
+  it("should handle even words", () => {
+    assert.equal(reverseString("hi"), "ih");
+  });
 
-  it('should handle odd words', () => {
-    assert.equal(reverseString('cat'), 'tac');
-  })
+  it("should handle odd words", () => {
+    assert.equal(reverseString("cat"), "tac");
+  });
 
-  it('should handle single char', () => {
-    assert.equal(reverseString('a'), 'a');
-  })
+  it("should handle single char", () => {
+    assert.equal(reverseString("a"), "a");
+  });
 });

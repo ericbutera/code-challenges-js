@@ -19,7 +19,7 @@ var plusOneStdlib = function (digits) {
 };
 
 var plusOneLoop = function (digits) {
-  digits[digits.length-1]++; // increment last number
+  digits[digits.length - 1]++; // increment last number
 
   for (let x = digits.length - 1; x >= 0; x--) {
     if (digits[x] == 10) {
@@ -28,9 +28,9 @@ var plusOneLoop = function (digits) {
       // example b: [10]  -> [1,0]
       digits[x] = 0;
       if (x == 0) {
-        digits.unshift(1) // number needs more storage (99->100)
+        digits.unshift(1); // number needs more storage (99->100)
       } else {
-        digits[x-1]++;
+        digits[x - 1]++;
       }
     }
   }
@@ -54,7 +54,13 @@ describe("#plusOne", () => {
       [6, 1, 4, 5, 3, 9, 0, 1, 9, 5, 1, 8, 6, 7, 0, 5, 5, 4, 4]
     );
   });
-  it("example 5", () =>{
-    assert.deepEqual(plusOne([9,9]), [1,0,0])
-  })
+  it("example 5", () => {
+    assert.deepEqual(plusOne([9, 9]), [1, 0, 0]);
+  });
+});
+
+describe("#plusOneStdlib", () => {
+  it("example 1", () => {
+    assert.deepEqual(plusOneStdlib([4, 3, 2, 1]), [4, 3, 2, 2]);
+  });
 });
